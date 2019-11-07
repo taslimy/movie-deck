@@ -2,7 +2,6 @@
   "name": "movie-deck",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://gomostream.com/user-api/",
   "dependencies": {
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
