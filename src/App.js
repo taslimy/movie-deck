@@ -7,19 +7,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      tvShows: []
     };
   }
 
   componentDidMount() {
     axios
-      .get(
-        `movie/popular?api_key=30b8cc2868c889f56c4f30abefa4c5fd&language=en-US&page=1`
-      )
+      .get(`shows`)
       .then(res => {
-        console.log(res.data);
+        console.log(res);
         this.setState({
-          movies: res.data.results
+          tvShows: res.data
         });
       })
       .catch(err => {
@@ -28,14 +26,17 @@ class App extends Component {
   }
 
   render() {
-    const x = this.state.movies;
+    const shows = this.state.tvShows;
 
     return (
       <div className='App'>
-        <div>hello you working?</div>
-        {x.map((movies, index) => (
-          <div key={index}>
-            <h2>{movies.title}</h2>
+        {shows.map(tv => (
+          <div key={tv.id}>
+            <h2>{tv.name}</h2>
+            <p>{tv.summary.replace(/<[^>]*>?/gm, '')}</p>
+            <h3>{tv.genres.join(' / ')}</h3>
+            <p>Status: {tv.status}</p>
+            <img src={tv.image.medium} alt={tv.name} />
           </div>
         ))}
 

@@ -2,7 +2,7 @@
   "name": "movie-deck",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://api.themoviedb.org/3/",
+  "proxy": "http://api.tvmaze.com/",
   "dependencies": {
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
